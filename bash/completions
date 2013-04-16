@@ -1,12 +1,10 @@
 # Bash completition
-if [ -n "$PORTS_HOME" ]; then
-  if [ -f $PORTS_HOME/etc/bash_completion ]; then
-    echo "call $PORTS_HOME/etc/bash_completion"
-    source $PORTS_HOME/share/bash-completion/bash_completion
+if [ -n "$HOME/.bash/" ]; then
+  if [ -f $HOME/.bash/bash_completion ]; then
+    source $HOME/.bash/bash_completion
   else
     _cecho_warning
     echo 'Bash completion is not installed in your system'
-    echo -e "Please install it with '${ansi_cyan}port install bash-completion${ansi_reset}'"
   fi
 fi
 
@@ -31,9 +29,11 @@ for cmd in 'ga gb gc gcb gd gdw gci gca gf gfr gl glr glp glo gm gmt gp gs gsf g
     || complete -o default -o nospace -F _git_complete_aliases $cmd 2>/dev/null
 done
 
+for i in ~/.bash/brew_bash_completion.d/*; do
+  source $i
+done
+
 for i in ~/.bash/bash_completion.d/*; do
   source $i
 done
 
-[ -d "$rvm_path" ] && source $rvm_path/scripts/completion
-[ -s "$GOROOT/misc/bash/go" ] && source $GOROOT/misc/bash/go
