@@ -1,0 +1,18 @@
+bind S eval split "focus bottom" next
+startup_message off
+caption always "%?%F%{-b}%:%{-b}%?%H%?%F%{+u}%? %L=%-Lw%45>%{+b}%n%f* %t%{-}%+Lw%-0<"
+bind f eval “caption splitonly” “hardstatus ignore”
+bind F eval “caption always” “hardstatus alwayslastline”
+bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
+
+bind s split
+
+bind + resize +5
+bind - resize -5
+bind = resize =
+
+
+zmodem catch

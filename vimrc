@@ -4,8 +4,8 @@ set nocompatible
 syntax on
 set nu
 set guifont=Monaco:h14
-set lines=50
-set columns=150
+"set lines=50
+"set columns=150
 
 set expandtab
 set shiftwidth=2

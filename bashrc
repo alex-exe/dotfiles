@@ -5,9 +5,9 @@ source $HOME/.bash/paths
 # Various system-wide environemnt variables
 source $HOME/.bash/config
 # Hadoop stuff
-source $HOME/.bash/hadoop
+#source $HOME/.bash/hadoop
 # Ruby Enterprise Edition GC tuning
-source $HOME/.bash/rubyee
+#source $HOME/.bash/rubyee
 # Aliases
 source $HOME/.bash/aliases
 # Helpful functions
