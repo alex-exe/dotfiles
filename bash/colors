@@ -45,3 +45,14 @@ function _cecho_warning {
 function _cecho_error {
   cecho -n $ansi_red 'ERROR: '
 }
+
+alias ll='grc ls -lFh --color=yes'
+alias ping="grc ping"
+alias traceroute="grc traceroute"
+alias make="grc make"
+alias diff="grc diff"
+alias cvs="grc cvs"
+alias netstat="grc netstat"
+alias logc="grc cat"
+alias logt="grc tail"
+alias logh="grc head"
