@@ -1,11 +1,17 @@
 # Bash completition
-if [ -n "$HOME/.bash/" ]; then
-  if [ -f $HOME/.bash/bash_completion ]; then
-    source $HOME/.bash/bash_completion
+if [ -n "/opt/local/etc/" ]; then
+  if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    . /opt/local/etc/profile.d/bash_completion.sh
+#  if [ -f /opt/local/etc/bash_completion ]; then
+#    source /opt/local/etc/bash_completion
   else
     _cecho_warning
     echo 'Bash completion is not installed in your system'
   fi
+fi
+
+if [ -f /opt/local/share/git-core/git-prompt.sh ]; then
+    . /opt/local/share/git-core/git-prompt.sh
 fi
 
 # Git aliases completition
@@ -27,10 +33,6 @@ function _git_complete_aliases {
 for cmd in 'ga gb gc gcb gd gdw gci gca gf gfr gl glr glp glo gm gmt gp gs gsf gss'; do
   complete -o bashdefault -o default -o nospace -F _git_complete_aliases $cmd 2>/dev/null \
     || complete -o default -o nospace -F _git_complete_aliases $cmd 2>/dev/null
-done
-
-for i in ~/.bash/brew_bash_completion.d/*; do
-  source $i
 done
 
 for i in ~/.bash/bash_completion.d/*; do

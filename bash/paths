@@ -34,3 +34,8 @@ else
 fi
 
 export PATH="$HOME/bin:$HOME/.bash/bin:$PATH"
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+if [ -f "$HOME/.bash/paths_local" ]; then
+  . $HOME/.bash/paths_local
+fi
