@@ -22,4 +22,4 @@ if [ -s "$HOME/.localrc" ]; then
   source $HOME/.localrc
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
