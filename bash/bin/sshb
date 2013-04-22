@@ -1,17 +1,15 @@
 #!/bin/bash
-
 # SSH with host name and IP address in background (only in iTerm.app)
-
 # First, check to see if we have the correct terminal!
 if [ "$(tty)" == 'not a tty' ] || [ "$TERM_PROGRAM" != "iTerm.app" ] ; then
-  /usr/bin/ssh "$@"
+  /usr/bin/ssh -o LogLevel=Error "$@"
   exit $?
 fi
 
 function __calculate_iterm_window_dimensions {
   local size=( $(osascript -e "tell application \"iTerm\"
-    get bounds of the first window
-  end tell" | tr ',' ' ') )
+    get bounds of window 1
+  end tell" | tr ',' ' ' 2>/dev/null))
 
   local x1=${size[0]} y1=${size[1]} x2=${size[2]} y2=${size[3]}
   # 15px - scrollbar width
@@ -25,7 +23,7 @@ function __calculate_iterm_window_dimensions {
 DIMENSIONS=$(__calculate_iterm_window_dimensions)
 
 BG_COLOR="#000000"       # Background color
-FG_COLOR="#C62020"       # Foreground color
+FG_COLOR="#662020"       # Foreground color
 GRAVITY="NorthEast"      # Text gravity (NorthWest, North, NorthEast,
                          # West, Center, East, SouthWest, South, SouthEast)
 OFFSET1="20,10"          # Text offset
@@ -75,4 +73,22 @@ convert \
   "/tmp/iTermBG.$$.png"
 set_bg "/tmp/iTermBG.$$.png"
 
-/usr/bin/ssh "$@"
+username=`id -nu`
+server=$1;
+
+if [ "x$2" != "x" ]; then
+	cmd=$@
+#	if [ -n $2 ]; then
+#		cmd="bash";
+#	fi
+	/usr/bin/ssh -o LogLevel=Error "$@"
+	exit;
+else 
+	shift
+    if [ "x$@" == "x" ]; then
+        cmd="bash";
+	else
+		cmd=$@;
+    fi
+	/usr/bin/ssh -o LogLevel=Error -t $server "if [ -f /usr/bin/screen ]; then /usr/bin/screen -t $username -D -R -S $username \"$cmd\"; else bash; fi" 
+fi
