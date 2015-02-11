@@ -36,6 +36,10 @@ fi
 export PATH="$HOME/bin:$HOME/.bash/bin:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
+export GOROOT=/opt/local/go/
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 if [ -f "$HOME/.bash/paths_local" ]; then
   . $HOME/.bash/paths_local
 fi

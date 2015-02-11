@@ -1,4 +1,8 @@
 # Bash completition
+if [ -f /opt/dotfiles/bash/bin/.git-prompt.sh ]; then
+	source /opt/dotfiles/bash/bin/.git-prompt.sh
+fi
+
 if [ -n "/opt/local/etc/" ]; then
   if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
     . /opt/local/etc/profile.d/bash_completion.sh
