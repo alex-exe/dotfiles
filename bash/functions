@@ -27,7 +27,7 @@ function dotfilesupdate {
 }
 OATH_KEY_HOME=~/.otp/
 
-function p {
+function otp {
   if [ -f $OATH_KEY_HOME/$1 ]
     then
       CODE=$(oathtool --totp -b -d 6 `cat $OATH_KEY_HOME/$1`)
