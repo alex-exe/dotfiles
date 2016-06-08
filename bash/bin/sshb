@@ -43,18 +43,29 @@ RESOLVED_IP=`echo -e "$output"|grep '^ip_address:'|awk '{print $2}'`
 
 function set_bg {
   local tty=$(tty)
-  osascript -e "
+# Iterm <2.3
+#  osascript -e "
+#    tell application \"iTerm\"
+#      repeat with theTerminal in terminals
+#        tell theTerminal
+#          try
+#            tell session id \"$tty\"
+#              set background image to \"$1\"
+#            end tell
+#          on error errmesg number errn
+#          end try
+#        end tell
+#      end repeat
+#    end tell"
+
+#Iterm2.3:
+osascript -e "
     tell application \"iTerm\"
-      repeat with theTerminal in terminals
-        tell theTerminal
-          try
-            tell session id \"$tty\"
-              set background image path to \"$1\"
-            end tell
-          on error errmesg number errn
-          end try
+      tell the current window
+		tell the current session
+		  set background image to \"$1\"
         end tell
-      end repeat
+      end tell
     end tell"
 }
 
