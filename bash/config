@@ -2,7 +2,7 @@ export LANG=en_US.UTF-8
 export QTDIR=/opt/local/lib/qt3
 
 # Setup some environment variables
-export GREP_OPTIONS="--color=auto"
+#export GREP_OPTIONS="--color=auto"
 export EDITOR="subl -w"
 export GEM_EDITOR=subl
 

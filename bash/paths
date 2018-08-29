@@ -33,8 +33,11 @@ else
   echo -e "Please install it first'"
 fi
 
+source /Users/alex/bin/google-cloud-sdk/path.bash.inc
+
 export PATH="$HOME/bin:$HOME/.bash/bin:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/Users/alex/Library/Python/3.6/bin/:$PATH
 
 export GOROOT=/opt/local/go/
 export GOPATH=$HOME/go
