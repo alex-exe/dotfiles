@@ -33,6 +33,7 @@ else
   echo -e "Please install it first'"
 fi
 
+export PATH="/opt/local/libexec/gnubin:$PATH"
 source /Users/alex/bin/google-cloud-sdk/path.bash.inc
 
 export PATH="$HOME/bin:$HOME/.bash/bin:$PATH"
