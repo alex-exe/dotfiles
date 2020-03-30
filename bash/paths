@@ -34,6 +34,7 @@ else
 fi
 
 export PATH="/opt/local/libexec/gnubin:$PATH"
+export PATH="$HOME/.asdf/bin:$PATH"
 source /Users/alex/bin/google-cloud-sdk/path.bash.inc
 
 export PATH="$HOME/bin:$HOME/.bash/bin:$PATH"
